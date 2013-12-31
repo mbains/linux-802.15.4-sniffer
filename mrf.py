@@ -4,8 +4,9 @@ from array import array
 import os
 import sys
 import struct
+import errno
 import time
-from pcapdump import PcapDumper
+from pcapd.pcapdump import PcapDumper
 
 from mpsse import *
 
@@ -195,6 +196,7 @@ class Mrf24j40(object):
 
         self.rxStatusQueue = []
         self.txStatusQueue = []
+        print "mrf24j40 driver initialized on channel ", channel
 
 
 
@@ -301,15 +303,20 @@ class Mrf24j40(object):
 
 if __name__ == '__main__':
     pipename = '/tmp/wiresharkpipe'
-    os.system('rm -f ' + pipename)
+    #os.system('rm -f ' + pipename)
     try:
         os.mkfifo(pipename) #default mode 0666 (octal)
     except OSError, e:
-        print "Failed to create FIFO: %s" % e
-        sys.exit(-1)
+        if e.errno != errno.EEXIST:    
+            print "Failed to create FIFO: %s" % e
+            sys.exit(-1)
+            
+    rcode = os.fork()
+    if rcode == 0:
+        os.execlp('wireshark', 'wireshark', '-k', '-i', pipename)
 
     dumper = PcapDumper(195, pipename)
-    mrf = Mrf24j40(True, 25)
+    mrf = Mrf24j40(True, int(sys.argv[-1]))
     mrf.setpan(0xcafe)
     mrf.set_short_addr(0x100)
     mrf.set_promiscuous(True)
