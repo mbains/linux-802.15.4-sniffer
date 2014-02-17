@@ -12,6 +12,8 @@ The aim of this project is to create a linux based 802.15.4/Zigbee sniffer witho
 * [Microchip's MRF24J40MA 802.15.4 Transceiver](http://www.mouser.com/new/microchip/MRF24J40MA/)
 
 
+![alt text](https://raw.github.com/mbains/linux-802.15.4-sniffer/master/resources/mrf24j40ma.png "Hardware after assembly")
+
 
 ## Required Software
 * [libmpsse](https://code.google.com/p/libmpsse/)
@@ -22,8 +24,5 @@ The aim of this project is to create a linux based 802.15.4/Zigbee sniffer witho
 
 python mrf.py <IEEE 802.15.4 channel, 11-26>
 
-
-
-![alt text](https://raw.github.com/mbains/linux-802.15.4-sniffer/master/resources/mrf24j40ma.png "Hardware after assembly")
 
 ![alt text](https://raw.github.com/mbains/linux-802.15.4-sniffer/master/resources/zigbee_sniff.png "Wireshark sniff")
