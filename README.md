@@ -1,7 +1,7 @@
 linux-802.15.4-sniffer
 ======================
 
-The aim of this project is to create a linux based 802.15.4/Zigbee sniffer without the need of any firmware or a microcontroller. 
+The aim of this project is to create a linux based 802.15.4/Zigbee sniffer without the need of any firmware or a microcontroller. The hardware used is Microchip's MRF24J40MA 2.4 GHz 802.15.4 transceiver over a FTDI USB-SPI bridge. The code to configure and capture packets from the radio is written in python and piped to wireshark for parsing and viewing.
 
 
 
