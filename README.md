@@ -22,7 +22,7 @@ The aim of this project is to create a linux based 802.15.4/Zigbee sniffer witho
 
 ## Running:
 
-python mrf.py  &lt; IEEE 2.4GHz Channel  &rt; 
+python mrf.py  &lt;IEEE 2.4GHz Channel&gt; 
 
 
 ![alt text](https://raw.github.com/mbains/linux-802.15.4-sniffer/master/resources/zigbee_sniff.png "Wireshark sniff")
